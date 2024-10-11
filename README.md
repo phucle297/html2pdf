@@ -24,18 +24,21 @@ Our package addresses this by reducing the number of calls to html2canvas as muc
 ## Package limitations
 For optimal performance, this package splits the canvas without regard for specific element boundaries. As a result, you need to ensure that all pages have the same height. If you have multiple pages with different heights, we recommend pre-processing the HTML element to standardize page heights before using this package.
 ## Installation
-`npm install @permees/html2pdf`
+`npm install @permees/htmltopdf`
 
+`yarn add @permees/htmltopdf`
+
+`pnpm intall @permees/htmltopdf`
 ## Usage
 ```
-import { htmlToPdf } from '@permees/html2pdf';
+import { htmlToPdf } from '@permees/htmltopdf';
 
 
 const Component = () => {
   const ref = useRef(null)
   const onClick = () => {
-    htmlToPdf(reportContainerRef.current, {
-      fileName: `InsightReport_${dayjs()}.pdf`,
+    htmlToPdf(ref.current, {
+      fileName: `report.pdf`,
       html2canvasOptions: {
         scale: 2,
         //... add any other html2canvas options
@@ -65,7 +68,7 @@ const Component = () => {
     <div>
       <div ref={ref}>
         <h1>HTML to PDF Converter</h1>
-        <p>This package converts HTML to PDF using @permees/html2pdf.</p>
+        <p>This package converts HTML to PDF using @permees/htmltopdf.</p>
       </div>
       <button onClick={onClick}>Download PDF</button>
     </div>
